@@ -5,6 +5,7 @@ A simple GUI tool for OCR image-to-text copy-paste-pad that uses Python + `tkint
 ![OCR-CopyPastePad screenshot](https://github.com/FlyingFathead/OCR-CopyPastePad/blob/main/OCR-CopyPastePad.png)
 
 # About
+
 With `OCR-CopyPastePad`, you can easily get your text-containing image files read into plaintext format. The program uses various user-selectable methods to try to interpret text date from an imported image or an input copy-paste, such as `pytesseract`'s Tesseract OCR or `easyocr`. The program also supports i.e. inverting the colors on the input image for higher degree of OCR accuracy.
 
 The aim of the program is to simplify workflows, i.e. making it easy to copy-paste the text data to a text editor, ChatGPT or some other AI LLM that you need to go text data through with. The idea is for the program to be as simple as possible when OCR conversion from image to text is needed in a given workflow.
@@ -18,38 +19,47 @@ The aim of the program is to simplify workflows, i.e. making it easy to copy-pas
 - Error Handling: Informative error messages guide users when issues arise, such as when non-image data is pasted.
 
 # Install
+
 This tool requires `Python` v3.4 or newer to run. You will also need `git` to clone the repository.
 
 **1. Clone the repository**
+
 ```
 git clone https://github.com/FlyingFathead/OCR-CopyPastePad/
 cd OCR-CopyPastePad/
 ```
+
 **2. Install the prerequisites**
+
 ```
 pip install -r requirements.txt
 ```
+
 (or, manually: `pip install -U pytesseract Pillow python-opencv easyocr`)
 
 You will also need to download the tesseract libraries and install them.
 
-- On Windows, download i.e. the pre-compiled installer: https://github.com/UB-Mannheim/tesseract/wiki
+- On Windows, download i.e. the pre-compiled installer: <https://github.com/UB-Mannheim/tesseract/wiki>
   Note that on windows you need to add the installation directory to your PATH environment variable.
   If you installed the UB-Mannheim Tesseract version for all users, you can do this in an administrator PowerShell with i.e.:
+
   ```
   [System.Environment]::SetEnvironmentVariable('Path', [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine) + ";C:\Program Files\Tesseract-OCR", [System.EnvironmentVariableTarget]::Machine)`
   ```
+
   The command above assumes that your install directory was `C:\Program Files\Tesseract-OCR\` -- change the command above accordingly to point to the correct directory!
 
 - On Linux, i.e. Ubuntu: `sudo apt install tesseract-ocr`
 - On MacOS, using Homebrew: `brew install tesseract`
 
 **3. Run the program**
+
 ```
 python OCR-CopyPastePad.py
 ```
 
 # Usage
+
 1. Launch the OCR-CopyPastePad application (`python OCR-CopyPastePad.py`). You can also try out if your OCR results are better with the non-OpenCV version by running `python OCR-CopyPastePad_no_OpenCV_ROI.py`.
 2. Load an image using the "Load Image" button or paste an image directly into the application
 (in Windows you can use i.e. the snippet tool: `Shift + Winkey + S`).
@@ -59,6 +69,7 @@ python OCR-CopyPastePad.py
 - Note that results may vary between source texts etc. -- in some cases, running the non-OpenCV version might actually yield more accurate results. OCR is a... thing.
 
 # Changelog
+
 - `v0.146`: check for tesseract libraries on startup
 - `v0.145`: ROI sorting logic redone for EasyOCR processing
 - `v0.144`: Fixes to status update threading
@@ -70,9 +81,11 @@ python OCR-CopyPastePad.py
 - `v0.08`: Added the GUI option to invert image colors for better OCR accuracy.
 
 # Todo
+
 - [x] Better implementation of the clipboard copy-paste-functionality
 - [x] User-drawable rectangle regions of interest on image
 
 # About
-- Code on GitHub: https://github.com/FlyingFathead/OCR-CopyPastePad/
+
+- Code on GitHub: <https://github.com/FlyingFathead/OCR-CopyPastePad/>
 - OCR-CopyPastePad is made by [FlyingFathead](https://github.com/FlyingFathead/) w/ ghost code by ChaosWhisperer
